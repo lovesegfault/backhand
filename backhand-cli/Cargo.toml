@@ -39,6 +39,18 @@ lzo = ["backhand/lzo"]
 ## Enables zstd compression inside library and binaries
 zstd = ["backhand/zstd"]
 
+[[bin]]
+name = "unsquashfs-backhand"
+path = "src/bin/unsquashfs.rs"
+
+[[bin]]
+name = "add-backhand"
+path = "src/bin/add.rs"
+
+[[bin]]
+name = "replace-backhand"
+path = "src/bin/replace.rs"
+
 [package.metadata.docs.rs]
 all-features = true
 rustdoc-args = ["--cfg", "docsrs"]
