@@ -59,6 +59,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Bump `byte-unit` from 4.0.19 to 5.0.3 ([#367](https://github.com/wcampbell0x2a/backhand/pull/367))
 - Bump `actions/labeler` from 4 to 5 ([#377](https://github.com/wcampbell0x2a/backhand/pull/377))
 - Bump `test-log` from 0.2.13 to 0.2.14 ([#378](https://github.com/wcampbell0x2a/backhand/pull/378))
+- Bump `actions/upload-artifact` from 3.1.3 to 4.0.0 ([#380](https://github.com/wcampbell0x2a/backhand/pull/380))
 
 ## [v0.13.0] - 2023-06-18
 ### backhand
