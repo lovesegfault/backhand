@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+Major changes were made to the organization of this repo, with the library `backhand` now being separated from
+the `backhand-cli` package, which is used to install `unsquashfs`, `replace`, and `add`.
 ### `backhand`
 #### Changes
 - Following changes were done to allow multi-threaded applications ([#278](https://github.com/wcampbell0x2a/backhand/pull/278))
@@ -17,6 +19,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Allow user provided read/write files to not be static ([@rbran](https://github.com/rbran)) ([#285](https://github.com/wcampbell0x2a/backhand/pull/285))
 - Bump flate2 from 1.0.26 to 1.0.28 ([#307](https://github.com/wcampbell0x2a/backhand/pull/307))
 - Bump MSRV to `1.67.1`
+- Allow creating and reading uncompressed files ([#365](https://github.com/wcampbell0x2a/backhand/pull/365))
+- Allow calling `FilesystemWriter::write` with Owned and RefMut writer ([#361](https://github.com/wcampbell0x2a/backhand/pull/361))
+- Push dir, file, etc, with lifetimes unrelated to reader from `from_fs_reader` ([#361](https://github.com/wcampbell0x2a/backhand/pull/361))
+
+For example, the following is now allowed:
+```diff
+-   let mut output = File::create(&args.out).unwrap();
+-   if let Err(e) = filesystem.write(&mut output) {
++   let output = File::create(&args.out).unwrap();
++   if let Err(e) = filesystem.write(output) {
+````
 
 #### Bug Fix
 - When creating an empty image using `FilesystemWriter::default()`, correctly create the ID table for UID and GID entries. Reported: ([@hwittenborn](https://github.com/hwittenborn)) ([!250](https://github.com/wcampbell0x2a/backhand/issues/275)), Fixed: ([#275](https://github.com/wcampbell0x2a/backhand/pull/275))
